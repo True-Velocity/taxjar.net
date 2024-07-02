@@ -1,26 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Taxjar
 {
-    public record CustomersResponse
-    {
-        [JsonPropertyName("customers")]
-        public List<string> Customers { get; set; } = new List<string>();
-    }
-
-    public record CustomerResponse
-    {
-        [JsonPropertyName("customer")]
-        public CustomerResponseAttributes? Customer { get; set; }
-    }
-
-    public record CustomerResponseAttributes : Customer
-    {
-    }
-
-
-    public record Customer
+    public record TaxjarCustomerRequest
     {
 
         ///<summary>
@@ -88,20 +71,5 @@ namespace Taxjar
         ///</summary>
         [JsonPropertyName("street")]
         public string? Street { get; set; }
-    }
-
-    public record ExemptRegion
-    {
-        ///<summary>
-        ///Two-letter ISO state code where the customer is exempt.
-        ///</summary>
-        [JsonPropertyName("country")]
-        public string Country { get; set; } = string.Empty;
-
-        ///<summary>
-        ///Two-letter ISO state code where the customer is exempt.
-        ///</summary>
-        [JsonPropertyName("state")]
-        public string State { get; set; } = string.Empty;
     }
 }
